@@ -34,6 +34,11 @@ public class ARscript : MonoBehaviour
             {
                 ARRaycastHit hit = hits[0];
                 ARPlane Touch_Plane = planemanager.GetPlane(hit.trackableId);
+                Instantiate(Netherportal, hit.pose.position, Touch_Plane.transform.rotation);
+                
+                planemanager.SetTrackablesActive(false);
+                planemanager.enabled = false;
+                placed = true;
             }
         }
         
